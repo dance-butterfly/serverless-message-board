@@ -16,15 +16,9 @@
             max-width: 800px;
             margin: auto;
             padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border-radius: 8px;
         }
         h1 {
             color: #333;
-            border-bottom: 2px solid #5cb85c;
-            padding-bottom: 10px;
         }
         .form-section, .messages-section {
             background-color: #fff;
@@ -32,12 +26,6 @@
             margin-bottom: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border: 1px solid #ddd;
-        }
-        h2 {
-            color: #5cb85c;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
         }
         textarea {
             width: 100%;
@@ -45,7 +33,7 @@
             margin-bottom: 10px;
             border-radius: 5px;
             border: 1px solid #ddd;
-            box-sizing: border-box;
+            box-sizing: border-box; /* So padding doesn't affect width */
             height: 100px;
         }
         button {
@@ -55,7 +43,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         button:hover {
             background-color: #4cae4c;
@@ -63,10 +50,8 @@
         .message {
             padding: 10px;
             margin-bottom: 10px;
-            border-left: 5px solid #5cb85c;
+            border-left: 3px solid #5cb85c;
             background-color: #f9f9f9;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -88,7 +73,7 @@
         document.getElementById('submitMessage').addEventListener('click', postMessage);
         document.getElementById('refreshMessages').addEventListener('click', getMessages);
 
-        const apiEndpoint = 'https://wp6hbhkda0.execute-api.us-east-1.amazonaws.com/prod';
+        const apiEndpoint = 'YOUR_API_GATEWAY_INVOKE_URL';
 
         async function postMessage() {
             const messageContent = document.getElementById('messageContent').value;
